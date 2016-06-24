@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         send_btn.setClickable(false);
         disconnect_btn.setClickable(false);
 
+        received_et.setEnabled(false);
+
     }
 
     @Override
@@ -72,6 +74,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             connect_btn.setClickable(false);
                             disconnect_btn.setClickable(true);
                             send_btn.setClickable(true);
+                        } else {
+                            //连接失败
+                            Toast.makeText(MainActivity.this, "== 连接失败 ==", Toast.LENGTH_SHORT).show();
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
