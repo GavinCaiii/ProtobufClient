@@ -8,5 +8,6 @@ import java.io.Serializable;
  * @since 2016.6.2
  */
 public class TransBean implements Serializable {
+    private static final long serialVersionUID = 1L;
     public byte[] data;
 }

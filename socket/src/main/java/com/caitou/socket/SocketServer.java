@@ -83,7 +83,7 @@ public class SocketServer {
             while (isRunning){
                 try {
                     Socket socket = server.accept();
-                    System.out.println("SocketServer - connect success...");
+                    System.out.println("============= SocketServer : connect success =============");
                     executor.execute(new ProtobufService(socket, mListener));
                 } catch (IOException e) {
                     e.printStackTrace();
