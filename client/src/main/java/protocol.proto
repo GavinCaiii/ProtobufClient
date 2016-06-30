@@ -1,0 +1,28 @@
+package com.caitou.protocol;
+
+option java_package = "com.caitou.protocol";
+
+option java_outer_classname = "Protocol";
+
+import "request.proto";
+import "response.proto";
+
+message Frame {
+    //消息头
+    required Header header = 1;
+    //数据请求
+    optional Request request = 2;
+    //数据回复
+    optional Response response = 3;
+}
+
+//消息头
+message Header {
+    //帧头
+    required int32 head = 1;
+    //控制码
+    required int32 controlCode = 2;
+    //功能码
+    required int32 functionCode = 3;
+}
+
