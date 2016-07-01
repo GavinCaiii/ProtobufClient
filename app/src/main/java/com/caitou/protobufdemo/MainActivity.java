@@ -6,10 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.caitou.socket.ProtobufService;
-import com.caitou.socket.SocketServer;
-import com.caitou.socket.TransBean;
-
 public class MainActivity extends AppCompatActivity {
 
     private Button clr_btn;
@@ -25,16 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
         rev_et.setEnabled(false);
 
-        SocketServer.getInstance().startToListen(this, new ProtobufService.DataReceived() {
-            @Override
-            public void onReceived(TransBean bean) {
-                //received the data
-//                String data = HexDump.dumpHexString(bean.data);
-                String data = bean.toString();
-                rev_et.append(data);
-                rev_et.append("\n");
-            }
-        });
 
         clr_btn.setOnClickListener(new View.OnClickListener() {
             @Override

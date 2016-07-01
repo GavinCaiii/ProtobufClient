@@ -1,4 +1,4 @@
-package com.caitou.socket;
+package com.caitou.activity;
 
 import org.junit.Test;
 

@@ -25,8 +25,8 @@ public class IntRequestData extends BaseFrame implements Serializable {
         IntRequestData intRequestData = new IntRequestData();
 
         intRequestData.initHead(CTRL_CLIENT_TO_SERVER, FUNC_INT);
-        intRequestData.request.int32 = 0x11;
-        intRequestData.request.int64 = 0xff;
+        intRequestData.request.int32 = 123;
+        intRequestData.request.int64 = 456789;
 
         return intRequestData;
     }

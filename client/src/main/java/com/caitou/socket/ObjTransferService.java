@@ -15,7 +15,7 @@ import java.io.IOException;
 public class ObjTransferService extends IntentService {
 
     private static final int SOCKET_TIMEOUT = 5000;
-    public static final String ACTION_SEND_FILE = "com.example.android.socket.SEND_FILE";
+    public static final String ACTION_SEND_FILE = "com.caitou.socket.SEND_FILE";
     public static final String EXTRAS_OBJECT = "data";
     public static final String EXTRAS_GROUP_OWNER_ADDRESS = "go_host";
     public static final String EXTRAS_GROUP_OWNER_PORT = "go_port";

@@ -1,4 +1,4 @@
-package com.caitou.client;
+package com.caitou.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,8 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.caitou.data.IntRequestData;
 import com.caitou.socket.ObjTransferService;
 import com.caitou.socket.TransBean;
+import com.caitou.utils.HexDump;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private EditText ip_et;
@@ -89,7 +91,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (ipAdd.equals(""))
                     Toast.makeText(this, "请正确的输入ip地址", Toast.LENGTH_SHORT).show();
                 else {
-
+                    bean.frame = IntRequestData.create().toFrame();
+                    String str = HexDump.dumpHexString(bean.frame.toByteArray());
+                    System.out.println("==================================================");
+                    System.out.println(str);
+                    sendCommand(ipAdd, bean);
+                    System.out.println("==================================================");
                 }
                 break;
             case R.id.send_protobuf_str:

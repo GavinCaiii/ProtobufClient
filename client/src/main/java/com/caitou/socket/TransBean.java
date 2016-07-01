@@ -1,5 +1,7 @@
 package com.caitou.socket;
 
+import com.caitou.protocol.Protocol;
+
 import java.io.Serializable;
 
 /**
@@ -10,4 +12,6 @@ import java.io.Serializable;
 public class TransBean implements Serializable {
     private static final long serialVersionUID = 1L;
     public byte[] data;
+
+    public Protocol.Frame frame;
 }
