@@ -2,7 +2,6 @@ package com.caitou.data;
 
 import com.caitou.protocol.Protocol;
 import com.caitou.protocol.RequestProto;
-import com.caitou.protocol.ResponseProto;
 
 import java.io.Serializable;
 
@@ -21,29 +20,29 @@ public class IntRequestData extends BaseFrame implements Serializable {
         this.response = new Response();
     }
 
+    //构建IntRequestData对象
     public static IntRequestData create() {
         IntRequestData intRequestData = new IntRequestData();
 
-        intRequestData.initHead(CTRL_CLIENT_TO_SERVER, FUNC_FRAME_1);
+        intRequestData.initHead(CTRL_CLIENT_TO_SERVER, FUNC_INT);
         intRequestData.request.int32 = 0x11;
         intRequestData.request.int64 = 0xff;
 
         return intRequestData;
     }
 
+    //只解析出response
     public static IntRequestData parseFrom(Protocol.Frame frame){
-        IntRequestData ird = new IntRequestData();
-        ird.paresFromHeader(frame.getHeader());
+        IntRequestData intRequestData = new IntRequestData();
+        intRequestData.paresFromHeader(frame.getHeader());
 
-        ResponseProto.Response response = frame.getResponse();
-        ResponseProto.IntResponse intResponse = response.getIntResponse();
+        intRequestData.response.rInt32 = frame.getResponse().getIntResponse().getInt32Data();
+        intRequestData.response.rInt64 = frame.getResponse().getIntResponse().getInt64Data();
 
-        ird.response.rInt32 = intResponse.getInt32Data();
-        ird.response.rInt64 = intResponse.getInt64Data();
-
-        return ird;
+        return intRequestData;
     }
 
+    //构建protobuf的数据帧
     @Override
     public Protocol.Frame toFrame() {
         Protocol.Frame.Builder frameBuilder = Protocol.Frame.newBuilder();

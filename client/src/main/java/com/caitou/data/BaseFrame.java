@@ -14,9 +14,8 @@ public abstract class BaseFrame implements Serializable {
     public static final int CTRL_CLIENT_TO_SERVER = 0x01;
     public static final int CTRL_SERVER_TO_CLIENT = 0x02;
 
-    public static final int FUNC_FRAME_1 = 0x03;
-    public static final int FUNC_FRAME_2 = 0x04;
-    public static final int FUNC_FRAME_3 = 0x05;
+    public static final int FUNC_INT = 0x01;
+    public static final int FUNC_STRING = 0x02;
 
     public int head;            //帧头
     public int controlCode;     //控制码

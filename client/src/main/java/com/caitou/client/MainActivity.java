@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText data_et;
     private EditText received_et;
     private Button send_btn;
+    private Button send_pro_int;
+    private Button send_pro_str;
 
     private static final int PORT = 8888;
 
@@ -32,10 +34,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ip_et = (EditText) findViewById(R.id.ip);
         data_et = (EditText) findViewById(R.id.send_data_area);
         received_et = (EditText) findViewById(R.id.received_area);
-
         send_btn = (Button) findViewById(R.id.send);
+        send_pro_int = (Button) findViewById(R.id.send_protobuf_int);
+        send_pro_str = (Button) findViewById(R.id.send_protobuf_str);
 
         send_btn.setOnClickListener(this);
+        send_pro_int.setOnClickListener(this);
+        send_pro_str.setOnClickListener(this);
 
         received_et.setEnabled(false);
 
@@ -52,9 +57,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
+        String ipAdd = ip_et.getText().toString();
         switch (view.getId()){
             case R.id.send:
-                String ipAdd = ip_et.getText().toString();
                 String data = data_et.getText().toString();
                 if (ipAdd.equals("")){
                     new AlertDialog.Builder(MainActivity.this).setTitle("Error!")
@@ -80,6 +85,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     bean.data = data.getBytes();
                     sendCommand(ipAdd, bean);
                 }
+            case R.id.send_protobuf_int:
+                if (ipAdd.equals(""))
+                    Toast.makeText(this, "请正确的输入ip地址", Toast.LENGTH_SHORT).show();
+                else {
+
+                }
+                break;
+            case R.id.send_protobuf_str:
+                break;
         }
     }
 }
