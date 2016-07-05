@@ -53,10 +53,6 @@ public class SocketClient {
             if (client == null)
                 return;
             OutputStream os = client.getOutputStream();
-//            ObjectOutputStream oos = new ObjectOutputStream(os);
-//            oos.writeObject(command);
-//            oos.flush();
-//            oos.close();
             os.write(data);
             os.flush();
             os.close();
