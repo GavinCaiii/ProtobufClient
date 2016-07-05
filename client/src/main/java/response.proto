@@ -6,8 +6,8 @@ option java_outer_classname = "ResponseProto";
 
 //下行帧
 message Response {
-    required StringResponse stringResponse = 1;
-    required IntResponse intResponse = 2;
+    optional StringResponse stringResponse = 1;
+    optional IntResponse intResponse = 2;
 }
 
 //字符串类型数据

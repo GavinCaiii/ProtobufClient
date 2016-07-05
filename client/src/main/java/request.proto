@@ -6,8 +6,8 @@ option java_outer_classname = "RequestProto";
 
 //上行帧
 message Request {
-    required StringRequest stringRequest = 1;
-    required IntRequest intRequest = 2;
+    optional StringRequest stringRequest = 1;
+    optional IntRequest intRequest = 2;
 }
 
 //字符串类型数据

@@ -20,10 +20,18 @@ public class StrRequestData extends BaseFrame implements Serializable{
         this.response = new Response();
     }
 
-    public StrRequestData create() {
+    public static StrRequestData create() {
         StrRequestData strRequestData = new StrRequestData();
         strRequestData.initHead(CTRL_CLIENT_TO_SERVER, FUNC_STRING);
         strRequestData.request.str = "I'm form client!";
+
+        return strRequestData;
+    }
+
+    public static StrRequestData initData(String strData) {
+        StrRequestData strRequestData = new StrRequestData();
+        strRequestData.initHead(CTRL_CLIENT_TO_SERVER, FUNC_STRING);
+        strRequestData.request.str = strData;
 
         return strRequestData;
     }
@@ -33,6 +41,8 @@ public class StrRequestData extends BaseFrame implements Serializable{
         Protocol.Frame.Builder frameBuilder = Protocol.Frame.newBuilder();
         RequestProto.Request.Builder reqBuilder = RequestProto.Request.newBuilder();
         RequestProto.StringRequest.Builder strReqBuilder = RequestProto.StringRequest.newBuilder();
+
+        strReqBuilder.setStrData(this.request.str);
 
         reqBuilder.setStringRequest(strReqBuilder);
         frameBuilder.setHeader(getFrameHeader());

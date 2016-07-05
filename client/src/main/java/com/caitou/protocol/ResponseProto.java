@@ -13,28 +13,28 @@ public final class ResponseProto {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required .com.caitou.protocol.StringResponse stringResponse = 1;</code>
+     * <code>optional .com.caitou.protocol.StringResponse stringResponse = 1;</code>
      */
     boolean hasStringResponse();
     /**
-     * <code>required .com.caitou.protocol.StringResponse stringResponse = 1;</code>
+     * <code>optional .com.caitou.protocol.StringResponse stringResponse = 1;</code>
      */
     com.caitou.protocol.ResponseProto.StringResponse getStringResponse();
     /**
-     * <code>required .com.caitou.protocol.StringResponse stringResponse = 1;</code>
+     * <code>optional .com.caitou.protocol.StringResponse stringResponse = 1;</code>
      */
     com.caitou.protocol.ResponseProto.StringResponseOrBuilder getStringResponseOrBuilder();
 
     /**
-     * <code>required .com.caitou.protocol.IntResponse intResponse = 2;</code>
+     * <code>optional .com.caitou.protocol.IntResponse intResponse = 2;</code>
      */
     boolean hasIntResponse();
     /**
-     * <code>required .com.caitou.protocol.IntResponse intResponse = 2;</code>
+     * <code>optional .com.caitou.protocol.IntResponse intResponse = 2;</code>
      */
     com.caitou.protocol.ResponseProto.IntResponse getIntResponse();
     /**
-     * <code>required .com.caitou.protocol.IntResponse intResponse = 2;</code>
+     * <code>optional .com.caitou.protocol.IntResponse intResponse = 2;</code>
      */
     com.caitou.protocol.ResponseProto.IntResponseOrBuilder getIntResponseOrBuilder();
   }
@@ -163,19 +163,19 @@ public final class ResponseProto {
     public static final int STRINGRESPONSE_FIELD_NUMBER = 1;
     private com.caitou.protocol.ResponseProto.StringResponse stringResponse_;
     /**
-     * <code>required .com.caitou.protocol.StringResponse stringResponse = 1;</code>
+     * <code>optional .com.caitou.protocol.StringResponse stringResponse = 1;</code>
      */
     public boolean hasStringResponse() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required .com.caitou.protocol.StringResponse stringResponse = 1;</code>
+     * <code>optional .com.caitou.protocol.StringResponse stringResponse = 1;</code>
      */
     public com.caitou.protocol.ResponseProto.StringResponse getStringResponse() {
       return stringResponse_;
     }
     /**
-     * <code>required .com.caitou.protocol.StringResponse stringResponse = 1;</code>
+     * <code>optional .com.caitou.protocol.StringResponse stringResponse = 1;</code>
      */
     public com.caitou.protocol.ResponseProto.StringResponseOrBuilder getStringResponseOrBuilder() {
       return stringResponse_;
@@ -184,19 +184,19 @@ public final class ResponseProto {
     public static final int INTRESPONSE_FIELD_NUMBER = 2;
     private com.caitou.protocol.ResponseProto.IntResponse intResponse_;
     /**
-     * <code>required .com.caitou.protocol.IntResponse intResponse = 2;</code>
+     * <code>optional .com.caitou.protocol.IntResponse intResponse = 2;</code>
      */
     public boolean hasIntResponse() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required .com.caitou.protocol.IntResponse intResponse = 2;</code>
+     * <code>optional .com.caitou.protocol.IntResponse intResponse = 2;</code>
      */
     public com.caitou.protocol.ResponseProto.IntResponse getIntResponse() {
       return intResponse_;
     }
     /**
-     * <code>required .com.caitou.protocol.IntResponse intResponse = 2;</code>
+     * <code>optional .com.caitou.protocol.IntResponse intResponse = 2;</code>
      */
     public com.caitou.protocol.ResponseProto.IntResponseOrBuilder getIntResponseOrBuilder() {
       return intResponse_;
@@ -212,21 +212,17 @@ public final class ResponseProto {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasStringResponse()) {
-        memoizedIsInitialized = 0;
-        return false;
+      if (hasStringResponse()) {
+        if (!getStringResponse().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
       }
-      if (!hasIntResponse()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!getStringResponse().isInitialized()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!getIntResponse().isInitialized()) {
-        memoizedIsInitialized = 0;
-        return false;
+      if (hasIntResponse()) {
+        if (!getIntResponse().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
       }
       memoizedIsInitialized = 1;
       return true;
@@ -464,21 +460,17 @@ public final class ResponseProto {
       }
 
       public final boolean isInitialized() {
-        if (!hasStringResponse()) {
-          
-          return false;
+        if (hasStringResponse()) {
+          if (!getStringResponse().isInitialized()) {
+            
+            return false;
+          }
         }
-        if (!hasIntResponse()) {
-          
-          return false;
-        }
-        if (!getStringResponse().isInitialized()) {
-          
-          return false;
-        }
-        if (!getIntResponse().isInitialized()) {
-          
-          return false;
+        if (hasIntResponse()) {
+          if (!getIntResponse().isInitialized()) {
+            
+            return false;
+          }
         }
         return true;
       }
@@ -506,13 +498,13 @@ public final class ResponseProto {
       private com.google.protobuf.SingleFieldBuilder<
           com.caitou.protocol.ResponseProto.StringResponse, com.caitou.protocol.ResponseProto.StringResponse.Builder, com.caitou.protocol.ResponseProto.StringResponseOrBuilder> stringResponseBuilder_;
       /**
-       * <code>required .com.caitou.protocol.StringResponse stringResponse = 1;</code>
+       * <code>optional .com.caitou.protocol.StringResponse stringResponse = 1;</code>
        */
       public boolean hasStringResponse() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required .com.caitou.protocol.StringResponse stringResponse = 1;</code>
+       * <code>optional .com.caitou.protocol.StringResponse stringResponse = 1;</code>
        */
       public com.caitou.protocol.ResponseProto.StringResponse getStringResponse() {
         if (stringResponseBuilder_ == null) {
@@ -522,7 +514,7 @@ public final class ResponseProto {
         }
       }
       /**
-       * <code>required .com.caitou.protocol.StringResponse stringResponse = 1;</code>
+       * <code>optional .com.caitou.protocol.StringResponse stringResponse = 1;</code>
        */
       public Builder setStringResponse(com.caitou.protocol.ResponseProto.StringResponse value) {
         if (stringResponseBuilder_ == null) {
@@ -538,7 +530,7 @@ public final class ResponseProto {
         return this;
       }
       /**
-       * <code>required .com.caitou.protocol.StringResponse stringResponse = 1;</code>
+       * <code>optional .com.caitou.protocol.StringResponse stringResponse = 1;</code>
        */
       public Builder setStringResponse(
           com.caitou.protocol.ResponseProto.StringResponse.Builder builderForValue) {
@@ -552,7 +544,7 @@ public final class ResponseProto {
         return this;
       }
       /**
-       * <code>required .com.caitou.protocol.StringResponse stringResponse = 1;</code>
+       * <code>optional .com.caitou.protocol.StringResponse stringResponse = 1;</code>
        */
       public Builder mergeStringResponse(com.caitou.protocol.ResponseProto.StringResponse value) {
         if (stringResponseBuilder_ == null) {
@@ -571,7 +563,7 @@ public final class ResponseProto {
         return this;
       }
       /**
-       * <code>required .com.caitou.protocol.StringResponse stringResponse = 1;</code>
+       * <code>optional .com.caitou.protocol.StringResponse stringResponse = 1;</code>
        */
       public Builder clearStringResponse() {
         if (stringResponseBuilder_ == null) {
@@ -584,7 +576,7 @@ public final class ResponseProto {
         return this;
       }
       /**
-       * <code>required .com.caitou.protocol.StringResponse stringResponse = 1;</code>
+       * <code>optional .com.caitou.protocol.StringResponse stringResponse = 1;</code>
        */
       public com.caitou.protocol.ResponseProto.StringResponse.Builder getStringResponseBuilder() {
         bitField0_ |= 0x00000001;
@@ -592,7 +584,7 @@ public final class ResponseProto {
         return getStringResponseFieldBuilder().getBuilder();
       }
       /**
-       * <code>required .com.caitou.protocol.StringResponse stringResponse = 1;</code>
+       * <code>optional .com.caitou.protocol.StringResponse stringResponse = 1;</code>
        */
       public com.caitou.protocol.ResponseProto.StringResponseOrBuilder getStringResponseOrBuilder() {
         if (stringResponseBuilder_ != null) {
@@ -602,7 +594,7 @@ public final class ResponseProto {
         }
       }
       /**
-       * <code>required .com.caitou.protocol.StringResponse stringResponse = 1;</code>
+       * <code>optional .com.caitou.protocol.StringResponse stringResponse = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.caitou.protocol.ResponseProto.StringResponse, com.caitou.protocol.ResponseProto.StringResponse.Builder, com.caitou.protocol.ResponseProto.StringResponseOrBuilder> 
@@ -622,13 +614,13 @@ public final class ResponseProto {
       private com.google.protobuf.SingleFieldBuilder<
           com.caitou.protocol.ResponseProto.IntResponse, com.caitou.protocol.ResponseProto.IntResponse.Builder, com.caitou.protocol.ResponseProto.IntResponseOrBuilder> intResponseBuilder_;
       /**
-       * <code>required .com.caitou.protocol.IntResponse intResponse = 2;</code>
+       * <code>optional .com.caitou.protocol.IntResponse intResponse = 2;</code>
        */
       public boolean hasIntResponse() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required .com.caitou.protocol.IntResponse intResponse = 2;</code>
+       * <code>optional .com.caitou.protocol.IntResponse intResponse = 2;</code>
        */
       public com.caitou.protocol.ResponseProto.IntResponse getIntResponse() {
         if (intResponseBuilder_ == null) {
@@ -638,7 +630,7 @@ public final class ResponseProto {
         }
       }
       /**
-       * <code>required .com.caitou.protocol.IntResponse intResponse = 2;</code>
+       * <code>optional .com.caitou.protocol.IntResponse intResponse = 2;</code>
        */
       public Builder setIntResponse(com.caitou.protocol.ResponseProto.IntResponse value) {
         if (intResponseBuilder_ == null) {
@@ -654,7 +646,7 @@ public final class ResponseProto {
         return this;
       }
       /**
-       * <code>required .com.caitou.protocol.IntResponse intResponse = 2;</code>
+       * <code>optional .com.caitou.protocol.IntResponse intResponse = 2;</code>
        */
       public Builder setIntResponse(
           com.caitou.protocol.ResponseProto.IntResponse.Builder builderForValue) {
@@ -668,7 +660,7 @@ public final class ResponseProto {
         return this;
       }
       /**
-       * <code>required .com.caitou.protocol.IntResponse intResponse = 2;</code>
+       * <code>optional .com.caitou.protocol.IntResponse intResponse = 2;</code>
        */
       public Builder mergeIntResponse(com.caitou.protocol.ResponseProto.IntResponse value) {
         if (intResponseBuilder_ == null) {
@@ -687,7 +679,7 @@ public final class ResponseProto {
         return this;
       }
       /**
-       * <code>required .com.caitou.protocol.IntResponse intResponse = 2;</code>
+       * <code>optional .com.caitou.protocol.IntResponse intResponse = 2;</code>
        */
       public Builder clearIntResponse() {
         if (intResponseBuilder_ == null) {
@@ -700,7 +692,7 @@ public final class ResponseProto {
         return this;
       }
       /**
-       * <code>required .com.caitou.protocol.IntResponse intResponse = 2;</code>
+       * <code>optional .com.caitou.protocol.IntResponse intResponse = 2;</code>
        */
       public com.caitou.protocol.ResponseProto.IntResponse.Builder getIntResponseBuilder() {
         bitField0_ |= 0x00000002;
@@ -708,7 +700,7 @@ public final class ResponseProto {
         return getIntResponseFieldBuilder().getBuilder();
       }
       /**
-       * <code>required .com.caitou.protocol.IntResponse intResponse = 2;</code>
+       * <code>optional .com.caitou.protocol.IntResponse intResponse = 2;</code>
        */
       public com.caitou.protocol.ResponseProto.IntResponseOrBuilder getIntResponseOrBuilder() {
         if (intResponseBuilder_ != null) {
@@ -718,7 +710,7 @@ public final class ResponseProto {
         }
       }
       /**
-       * <code>required .com.caitou.protocol.IntResponse intResponse = 2;</code>
+       * <code>optional .com.caitou.protocol.IntResponse intResponse = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.caitou.protocol.ResponseProto.IntResponse, com.caitou.protocol.ResponseProto.IntResponse.Builder, com.caitou.protocol.ResponseProto.IntResponseOrBuilder> 
@@ -1761,9 +1753,9 @@ public final class ResponseProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\016response.proto\022\023com.caitou.protocol\"~\n" +
-      "\010Response\022;\n\016stringResponse\030\001 \002(\0132#.com." +
+      "\010Response\022;\n\016stringResponse\030\001 \001(\0132#.com." +
       "caitou.protocol.StringResponse\0225\n\013intRes" +
-      "ponse\030\002 \002(\0132 .com.caitou.protocol.IntRes" +
+      "ponse\030\002 \001(\0132 .com.caitou.protocol.IntRes" +
       "ponse\"!\n\016StringResponse\022\017\n\007strData\030\001 \002(\t" +
       "\"3\n\013IntResponse\022\021\n\tint32Data\030\001 \002(\005\022\021\n\tin" +
       "t64Data\030\002 \002(\003B$\n\023com.caitou.protocolB\rRe" +

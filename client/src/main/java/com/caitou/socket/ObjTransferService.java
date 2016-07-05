@@ -35,13 +35,13 @@ public class ObjTransferService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         if (intent.getAction().equals(ACTION_SEND_FILE)) {
-            TransBean command = (TransBean) intent.getExtras().getSerializable(EXTRAS_OBJECT);
+            byte[] data = (byte[]) intent.getExtras().getSerializable(EXTRAS_OBJECT);
             String host = intent.getExtras().getString(EXTRAS_GROUP_OWNER_ADDRESS);
             int port = intent.getExtras().getInt(EXTRAS_GROUP_OWNER_PORT);
 
             try {
                 SocketClient client = new SocketClient(host, port);
-                client.sendCommand(command);
+                client.sendCommand(data);
                 client.closeSocket();
             } catch (IOException e) {
                 e.printStackTrace();

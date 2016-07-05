@@ -6,7 +6,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
@@ -49,15 +48,18 @@ public class SocketClient {
         return result;
     }
 
-    public void sendCommand(TransBean command) {
+    public void sendCommand(byte[] data) {
         try {
             if (client == null)
                 return;
             OutputStream os = client.getOutputStream();
-            ObjectOutputStream oos = new ObjectOutputStream(os);
-            oos.writeObject(command);
-            oos.flush();
-            oos.close();
+//            ObjectOutputStream oos = new ObjectOutputStream(os);
+//            oos.writeObject(command);
+//            oos.flush();
+//            oos.close();
+            os.write(data);
+            os.flush();
+            os.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

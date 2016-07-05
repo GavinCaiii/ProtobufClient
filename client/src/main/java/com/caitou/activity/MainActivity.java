@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.caitou.data.IntRequestData;
+import com.caitou.data.StrRequestData;
+import com.caitou.protocol.Protocol;
 import com.caitou.socket.ObjTransferService;
 import com.caitou.socket.TransBean;
 import com.caitou.utils.HexDump;
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button send_pro_str;
 
     private static final int PORT = 8888;
+
+    private static final String IP = "10.1.1.84";
 
     TransBean bean = new TransBean();
 
@@ -44,14 +48,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         send_pro_int.setOnClickListener(this);
         send_pro_str.setOnClickListener(this);
 
+        ip_et.setText(IP);
+
         received_et.setEnabled(false);
 
     }
 
-    private void sendCommand(String ip, TransBean command){
+    private void sendCommand(String ip, byte[] data){
         Intent serviceIntent = new Intent(this, ObjTransferService.class);
         serviceIntent.setAction(ObjTransferService.ACTION_SEND_FILE);
-        serviceIntent.putExtra(ObjTransferService.EXTRAS_OBJECT, command);
+        serviceIntent.putExtra(ObjTransferService.EXTRAS_OBJECT, data);
         serviceIntent.putExtra(ObjTransferService.EXTRAS_GROUP_OWNER_ADDRESS, ip);
         serviceIntent.putExtra(ObjTransferService.EXTRAS_GROUP_OWNER_PORT, PORT);
         startService(serviceIntent);
@@ -72,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     Toast.makeText(MainActivity.this, "== IP地址出错 ==", Toast.LENGTH_SHORT).show();
                                 }
                             }).show();
-                    return;
+                    break;
                 }
                 if (data.equals("")){
                     new AlertDialog.Builder(MainActivity.this).setTitle("Error!")
@@ -84,22 +90,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 }
                             }).show();
                 } else {
-                    bean.data = data.getBytes();
-                    sendCommand(ipAdd, bean);
+                    Protocol.Frame frame = StrRequestData.initData(data).toFrame();
+                    sendCommand(ipAdd, frame.toByteArray());
                 }
+                break;
             case R.id.send_protobuf_int:
                 if (ipAdd.equals(""))
                     Toast.makeText(this, "请正确的输入ip地址", Toast.LENGTH_SHORT).show();
                 else {
-                    bean.frame = IntRequestData.create().toFrame();
-                    String str = HexDump.dumpHexString(bean.frame.toByteArray());
+                    Protocol.Frame frame = IntRequestData.create().toFrame();
+                    String str = HexDump.dumpHexString(frame.toByteArray());
                     System.out.println("==================================================");
                     System.out.println(str);
-                    sendCommand(ipAdd, bean);
+                    sendCommand(ipAdd, frame.toByteArray());
                     System.out.println("==================================================");
                 }
                 break;
             case R.id.send_protobuf_str:
+                if (ipAdd.equals(""))
+                    Toast.makeText(this, "请正确的输入ip地址", Toast.LENGTH_SHORT).show();
+                else {
+                    Protocol.Frame frame = StrRequestData.create().toFrame();
+                    String str = HexDump.dumpHexString(frame.toByteArray());
+                    System.out.println("==================================================");
+                    System.out.println(str);
+                    sendCommand(ipAdd, frame.toByteArray());
+                    System.out.println("==================================================");
+                }
                 break;
         }
     }

@@ -49,6 +49,9 @@ public class IntRequestData extends BaseFrame implements Serializable {
         RequestProto.Request.Builder reqBuilder = RequestProto.Request.newBuilder();
         RequestProto.IntRequest.Builder intReqBuilder = RequestProto.IntRequest.newBuilder();
 
+        intReqBuilder.setInt32Data(this.request.int32);
+        intReqBuilder.setInt64Data(this.request.int64);
+
         reqBuilder.setIntRequest(intReqBuilder);
         frameBuilder.setHeader(getFrameHeader());
         frameBuilder.setRequest(reqBuilder);

@@ -13,28 +13,28 @@ public final class RequestProto {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required .com.caitou.protocol.StringRequest stringRequest = 1;</code>
+     * <code>optional .com.caitou.protocol.StringRequest stringRequest = 1;</code>
      */
     boolean hasStringRequest();
     /**
-     * <code>required .com.caitou.protocol.StringRequest stringRequest = 1;</code>
+     * <code>optional .com.caitou.protocol.StringRequest stringRequest = 1;</code>
      */
     com.caitou.protocol.RequestProto.StringRequest getStringRequest();
     /**
-     * <code>required .com.caitou.protocol.StringRequest stringRequest = 1;</code>
+     * <code>optional .com.caitou.protocol.StringRequest stringRequest = 1;</code>
      */
     com.caitou.protocol.RequestProto.StringRequestOrBuilder getStringRequestOrBuilder();
 
     /**
-     * <code>required .com.caitou.protocol.IntRequest intRequest = 2;</code>
+     * <code>optional .com.caitou.protocol.IntRequest intRequest = 2;</code>
      */
     boolean hasIntRequest();
     /**
-     * <code>required .com.caitou.protocol.IntRequest intRequest = 2;</code>
+     * <code>optional .com.caitou.protocol.IntRequest intRequest = 2;</code>
      */
     com.caitou.protocol.RequestProto.IntRequest getIntRequest();
     /**
-     * <code>required .com.caitou.protocol.IntRequest intRequest = 2;</code>
+     * <code>optional .com.caitou.protocol.IntRequest intRequest = 2;</code>
      */
     com.caitou.protocol.RequestProto.IntRequestOrBuilder getIntRequestOrBuilder();
   }
@@ -163,19 +163,19 @@ public final class RequestProto {
     public static final int STRINGREQUEST_FIELD_NUMBER = 1;
     private com.caitou.protocol.RequestProto.StringRequest stringRequest_;
     /**
-     * <code>required .com.caitou.protocol.StringRequest stringRequest = 1;</code>
+     * <code>optional .com.caitou.protocol.StringRequest stringRequest = 1;</code>
      */
     public boolean hasStringRequest() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required .com.caitou.protocol.StringRequest stringRequest = 1;</code>
+     * <code>optional .com.caitou.protocol.StringRequest stringRequest = 1;</code>
      */
     public com.caitou.protocol.RequestProto.StringRequest getStringRequest() {
       return stringRequest_;
     }
     /**
-     * <code>required .com.caitou.protocol.StringRequest stringRequest = 1;</code>
+     * <code>optional .com.caitou.protocol.StringRequest stringRequest = 1;</code>
      */
     public com.caitou.protocol.RequestProto.StringRequestOrBuilder getStringRequestOrBuilder() {
       return stringRequest_;
@@ -184,19 +184,19 @@ public final class RequestProto {
     public static final int INTREQUEST_FIELD_NUMBER = 2;
     private com.caitou.protocol.RequestProto.IntRequest intRequest_;
     /**
-     * <code>required .com.caitou.protocol.IntRequest intRequest = 2;</code>
+     * <code>optional .com.caitou.protocol.IntRequest intRequest = 2;</code>
      */
     public boolean hasIntRequest() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required .com.caitou.protocol.IntRequest intRequest = 2;</code>
+     * <code>optional .com.caitou.protocol.IntRequest intRequest = 2;</code>
      */
     public com.caitou.protocol.RequestProto.IntRequest getIntRequest() {
       return intRequest_;
     }
     /**
-     * <code>required .com.caitou.protocol.IntRequest intRequest = 2;</code>
+     * <code>optional .com.caitou.protocol.IntRequest intRequest = 2;</code>
      */
     public com.caitou.protocol.RequestProto.IntRequestOrBuilder getIntRequestOrBuilder() {
       return intRequest_;
@@ -212,21 +212,17 @@ public final class RequestProto {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasStringRequest()) {
-        memoizedIsInitialized = 0;
-        return false;
+      if (hasStringRequest()) {
+        if (!getStringRequest().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
       }
-      if (!hasIntRequest()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!getStringRequest().isInitialized()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!getIntRequest().isInitialized()) {
-        memoizedIsInitialized = 0;
-        return false;
+      if (hasIntRequest()) {
+        if (!getIntRequest().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
       }
       memoizedIsInitialized = 1;
       return true;
@@ -464,21 +460,17 @@ public final class RequestProto {
       }
 
       public final boolean isInitialized() {
-        if (!hasStringRequest()) {
-          
-          return false;
+        if (hasStringRequest()) {
+          if (!getStringRequest().isInitialized()) {
+            
+            return false;
+          }
         }
-        if (!hasIntRequest()) {
-          
-          return false;
-        }
-        if (!getStringRequest().isInitialized()) {
-          
-          return false;
-        }
-        if (!getIntRequest().isInitialized()) {
-          
-          return false;
+        if (hasIntRequest()) {
+          if (!getIntRequest().isInitialized()) {
+            
+            return false;
+          }
         }
         return true;
       }
@@ -506,13 +498,13 @@ public final class RequestProto {
       private com.google.protobuf.SingleFieldBuilder<
           com.caitou.protocol.RequestProto.StringRequest, com.caitou.protocol.RequestProto.StringRequest.Builder, com.caitou.protocol.RequestProto.StringRequestOrBuilder> stringRequestBuilder_;
       /**
-       * <code>required .com.caitou.protocol.StringRequest stringRequest = 1;</code>
+       * <code>optional .com.caitou.protocol.StringRequest stringRequest = 1;</code>
        */
       public boolean hasStringRequest() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required .com.caitou.protocol.StringRequest stringRequest = 1;</code>
+       * <code>optional .com.caitou.protocol.StringRequest stringRequest = 1;</code>
        */
       public com.caitou.protocol.RequestProto.StringRequest getStringRequest() {
         if (stringRequestBuilder_ == null) {
@@ -522,7 +514,7 @@ public final class RequestProto {
         }
       }
       /**
-       * <code>required .com.caitou.protocol.StringRequest stringRequest = 1;</code>
+       * <code>optional .com.caitou.protocol.StringRequest stringRequest = 1;</code>
        */
       public Builder setStringRequest(com.caitou.protocol.RequestProto.StringRequest value) {
         if (stringRequestBuilder_ == null) {
@@ -538,7 +530,7 @@ public final class RequestProto {
         return this;
       }
       /**
-       * <code>required .com.caitou.protocol.StringRequest stringRequest = 1;</code>
+       * <code>optional .com.caitou.protocol.StringRequest stringRequest = 1;</code>
        */
       public Builder setStringRequest(
           com.caitou.protocol.RequestProto.StringRequest.Builder builderForValue) {
@@ -552,7 +544,7 @@ public final class RequestProto {
         return this;
       }
       /**
-       * <code>required .com.caitou.protocol.StringRequest stringRequest = 1;</code>
+       * <code>optional .com.caitou.protocol.StringRequest stringRequest = 1;</code>
        */
       public Builder mergeStringRequest(com.caitou.protocol.RequestProto.StringRequest value) {
         if (stringRequestBuilder_ == null) {
@@ -571,7 +563,7 @@ public final class RequestProto {
         return this;
       }
       /**
-       * <code>required .com.caitou.protocol.StringRequest stringRequest = 1;</code>
+       * <code>optional .com.caitou.protocol.StringRequest stringRequest = 1;</code>
        */
       public Builder clearStringRequest() {
         if (stringRequestBuilder_ == null) {
@@ -584,7 +576,7 @@ public final class RequestProto {
         return this;
       }
       /**
-       * <code>required .com.caitou.protocol.StringRequest stringRequest = 1;</code>
+       * <code>optional .com.caitou.protocol.StringRequest stringRequest = 1;</code>
        */
       public com.caitou.protocol.RequestProto.StringRequest.Builder getStringRequestBuilder() {
         bitField0_ |= 0x00000001;
@@ -592,7 +584,7 @@ public final class RequestProto {
         return getStringRequestFieldBuilder().getBuilder();
       }
       /**
-       * <code>required .com.caitou.protocol.StringRequest stringRequest = 1;</code>
+       * <code>optional .com.caitou.protocol.StringRequest stringRequest = 1;</code>
        */
       public com.caitou.protocol.RequestProto.StringRequestOrBuilder getStringRequestOrBuilder() {
         if (stringRequestBuilder_ != null) {
@@ -602,7 +594,7 @@ public final class RequestProto {
         }
       }
       /**
-       * <code>required .com.caitou.protocol.StringRequest stringRequest = 1;</code>
+       * <code>optional .com.caitou.protocol.StringRequest stringRequest = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.caitou.protocol.RequestProto.StringRequest, com.caitou.protocol.RequestProto.StringRequest.Builder, com.caitou.protocol.RequestProto.StringRequestOrBuilder> 
@@ -622,13 +614,13 @@ public final class RequestProto {
       private com.google.protobuf.SingleFieldBuilder<
           com.caitou.protocol.RequestProto.IntRequest, com.caitou.protocol.RequestProto.IntRequest.Builder, com.caitou.protocol.RequestProto.IntRequestOrBuilder> intRequestBuilder_;
       /**
-       * <code>required .com.caitou.protocol.IntRequest intRequest = 2;</code>
+       * <code>optional .com.caitou.protocol.IntRequest intRequest = 2;</code>
        */
       public boolean hasIntRequest() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required .com.caitou.protocol.IntRequest intRequest = 2;</code>
+       * <code>optional .com.caitou.protocol.IntRequest intRequest = 2;</code>
        */
       public com.caitou.protocol.RequestProto.IntRequest getIntRequest() {
         if (intRequestBuilder_ == null) {
@@ -638,7 +630,7 @@ public final class RequestProto {
         }
       }
       /**
-       * <code>required .com.caitou.protocol.IntRequest intRequest = 2;</code>
+       * <code>optional .com.caitou.protocol.IntRequest intRequest = 2;</code>
        */
       public Builder setIntRequest(com.caitou.protocol.RequestProto.IntRequest value) {
         if (intRequestBuilder_ == null) {
@@ -654,7 +646,7 @@ public final class RequestProto {
         return this;
       }
       /**
-       * <code>required .com.caitou.protocol.IntRequest intRequest = 2;</code>
+       * <code>optional .com.caitou.protocol.IntRequest intRequest = 2;</code>
        */
       public Builder setIntRequest(
           com.caitou.protocol.RequestProto.IntRequest.Builder builderForValue) {
@@ -668,7 +660,7 @@ public final class RequestProto {
         return this;
       }
       /**
-       * <code>required .com.caitou.protocol.IntRequest intRequest = 2;</code>
+       * <code>optional .com.caitou.protocol.IntRequest intRequest = 2;</code>
        */
       public Builder mergeIntRequest(com.caitou.protocol.RequestProto.IntRequest value) {
         if (intRequestBuilder_ == null) {
@@ -687,7 +679,7 @@ public final class RequestProto {
         return this;
       }
       /**
-       * <code>required .com.caitou.protocol.IntRequest intRequest = 2;</code>
+       * <code>optional .com.caitou.protocol.IntRequest intRequest = 2;</code>
        */
       public Builder clearIntRequest() {
         if (intRequestBuilder_ == null) {
@@ -700,7 +692,7 @@ public final class RequestProto {
         return this;
       }
       /**
-       * <code>required .com.caitou.protocol.IntRequest intRequest = 2;</code>
+       * <code>optional .com.caitou.protocol.IntRequest intRequest = 2;</code>
        */
       public com.caitou.protocol.RequestProto.IntRequest.Builder getIntRequestBuilder() {
         bitField0_ |= 0x00000002;
@@ -708,7 +700,7 @@ public final class RequestProto {
         return getIntRequestFieldBuilder().getBuilder();
       }
       /**
-       * <code>required .com.caitou.protocol.IntRequest intRequest = 2;</code>
+       * <code>optional .com.caitou.protocol.IntRequest intRequest = 2;</code>
        */
       public com.caitou.protocol.RequestProto.IntRequestOrBuilder getIntRequestOrBuilder() {
         if (intRequestBuilder_ != null) {
@@ -718,7 +710,7 @@ public final class RequestProto {
         }
       }
       /**
-       * <code>required .com.caitou.protocol.IntRequest intRequest = 2;</code>
+       * <code>optional .com.caitou.protocol.IntRequest intRequest = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.caitou.protocol.RequestProto.IntRequest, com.caitou.protocol.RequestProto.IntRequest.Builder, com.caitou.protocol.RequestProto.IntRequestOrBuilder> 
@@ -1761,9 +1753,9 @@ public final class RequestProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\rrequest.proto\022\023com.caitou.protocol\"y\n\007" +
-      "Request\0229\n\rstringRequest\030\001 \002(\0132\".com.cai" +
+      "Request\0229\n\rstringRequest\030\001 \001(\0132\".com.cai" +
       "tou.protocol.StringRequest\0223\n\nintRequest" +
-      "\030\002 \002(\0132\037.com.caitou.protocol.IntRequest\"" +
+      "\030\002 \001(\0132\037.com.caitou.protocol.IntRequest\"" +
       " \n\rStringRequest\022\017\n\007strData\030\001 \002(\t\"2\n\nInt" +
       "Request\022\021\n\tint32Data\030\001 \002(\005\022\021\n\tint64Data\030" +
       "\002 \002(\003B#\n\023com.caitou.protocolB\014RequestPro" +
