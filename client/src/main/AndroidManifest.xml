@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
 
-        <service android:enabled="true" android:name="com.caitou.socket.ObjTransferService" />
+        <service android:enabled="true" android:name="com.caitou.socket.TransferService" />
     </application>
 
 </manifest>

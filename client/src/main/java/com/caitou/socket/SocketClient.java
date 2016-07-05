@@ -1,7 +1,5 @@
 package com.caitou.socket;
 
-import android.util.Log;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,8 +19,6 @@ public class SocketClient {
     private Socket client = null;
 
     public SocketClient(String site, int port) throws IOException {
-        client = new Socket(site, port);
-        Log.d(TAG, "Socket client created! site = " + site + ", port = " + port);
     }
 
     /**
@@ -69,6 +65,24 @@ public class SocketClient {
             client.close();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private class ReadThread extends Thread{
+        boolean isRunning = false;
+        String ip = null;
+        int port = 0;
+        @Override
+        public void run() {
+            try {
+                client = new Socket(ip, port);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            while (isRunning){
+
+            }
         }
     }
 }

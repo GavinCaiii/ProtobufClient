@@ -13,8 +13,7 @@ import android.widget.Toast;
 import com.caitou.data.IntRequestData;
 import com.caitou.data.StrRequestData;
 import com.caitou.protocol.Protocol;
-import com.caitou.socket.ObjTransferService;
-import com.caitou.socket.TransBean;
+import com.caitou.socket.TransferService;
 import com.caitou.utils.HexDump;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -28,9 +27,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final int PORT = 8888;
 
     private static final String IP = "10.1.1.84";
-
-    TransBean bean = new TransBean();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,11 +51,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void sendCommand(String ip, byte[] data){
-        Intent serviceIntent = new Intent(this, ObjTransferService.class);
-        serviceIntent.setAction(ObjTransferService.ACTION_SEND_FILE);
-        serviceIntent.putExtra(ObjTransferService.EXTRAS_OBJECT, data);
-        serviceIntent.putExtra(ObjTransferService.EXTRAS_GROUP_OWNER_ADDRESS, ip);
-        serviceIntent.putExtra(ObjTransferService.EXTRAS_GROUP_OWNER_PORT, PORT);
+        Intent serviceIntent = new Intent(this, TransferService.class);
+        serviceIntent.setAction(TransferService.ACTION_SEND_FILE);
+        serviceIntent.putExtra(TransferService.EXTRAS_OBJECT, data);
+        serviceIntent.putExtra(TransferService.EXTRAS_GROUP_OWNER_ADDRESS, ip);
+        serviceIntent.putExtra(TransferService.EXTRAS_GROUP_OWNER_PORT, PORT);
         startService(serviceIntent);
     }
 
