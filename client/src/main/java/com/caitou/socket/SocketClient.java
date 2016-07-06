@@ -1,5 +1,7 @@
 package com.caitou.socket;
 
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,8 +19,32 @@ import java.net.Socket;
 public class SocketClient {
     private static final String TAG = "SocketClient";
     private Socket client = null;
+    private TransferService.DataReceived mListener;
+    private static SocketClient instance;
+    private ReadThread readThread = null;
+    private OutputStream os = null;
+    private String ip;
+    private int port;
 
-    public SocketClient(String site, int port) throws IOException {
+    private TransferService transferService;
+
+    public static SocketClient getInstance() {
+        if (instance == null)
+            instance = new SocketClient();
+        return instance;
+    }
+
+    private SocketClient() {}
+
+    public void startToListen(String ip, int port, TransferService.DataReceived listener) {
+        this.ip = ip;
+        this.port = port;
+        mListener = listener;
+
+        if (readThread == null || readThread.getState() != Thread.State.NEW)
+            readThread = new ReadThread();
+        readThread.start();
+
     }
 
     /**
@@ -46,12 +72,11 @@ public class SocketClient {
 
     public void sendCommand(byte[] data) {
         try {
-            if (client == null)
+            if (client == null || os == null)
                 return;
-            OutputStream os = client.getOutputStream();
             os.write(data);
             os.flush();
-            os.close();
+//            os.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -69,20 +94,17 @@ public class SocketClient {
     }
 
     private class ReadThread extends Thread{
-        boolean isRunning = false;
-        String ip = null;
-        int port = 0;
         @Override
         public void run() {
             try {
                 client = new Socket(ip, port);
+                os = client.getOutputStream();
+                Log.d(TAG, "Socket client created! site = " + ip + ", port = " + port);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-            while (isRunning){
-
-            }
+            transferService = new TransferService(client, mListener);
+            transferService.run();
         }
     }
 }
