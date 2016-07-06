@@ -52,31 +52,13 @@ public class SocketClient {
      *
      * @param msg
      */
-    public String sendMsg(String msg) {
-        String result = null;
-        try {
-            InputStream is = client.getInputStream();
-            BufferedReader in = new BufferedReader(new InputStreamReader(is));
-            OutputStream os = client.getOutputStream();
-            PrintWriter out = new PrintWriter(os);
-            out.println(msg);
-            out.flush();
-            result = in.readLine();
-            is.close();
-            out.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
 
-    public void sendCommand(byte[] data) {
+    public void sendMsg(byte[] data) {
         try {
             if (client == null || os == null)
                 return;
             os.write(data);
             os.flush();
-//            os.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -16,7 +16,6 @@ import com.caitou.data.StrRequestData;
 import com.caitou.protocol.Protocol;
 import com.caitou.socket.SocketClient;
 import com.caitou.socket.TransferService;
-import com.caitou.utils.HexDump;
 import com.google.protobuf.InvalidProtocolBufferException;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -33,8 +32,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Handler mHandler = new Handler();
 
     private static final int PORT = 8888;
-
-    private static final String IP = "10.1.1.84";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +55,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         connect_btn.setOnClickListener(this);
         clear_btn.setOnClickListener(this);
         disconnect_btn.setOnClickListener(this);
-
-        ip_et.setText(IP);
 
         received_et.setFocusable(false);
         received_et.setClickable(false);
@@ -121,10 +116,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         } catch (InvalidProtocolBufferException e) {
                             e.printStackTrace();
                         }
-                        String str = HexDump.dumpHexString(data);
-                        System.out.println("==================================");
-                        System.out.println("str = " + str);
-                        System.out.println("==================================");
                     }
                 });
 
@@ -158,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             }).show();
                 } else {
                     Protocol.Frame frame = StrRequestData.initData(data).toFrame();
-                    SocketClient.getInstance().sendCommand(frame.toByteArray());
+                    SocketClient.getInstance().sendMsg(frame.toByteArray());
                 }
                 break;
             case R.id.send_protobuf_int:
@@ -166,7 +157,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(this, "请正确的输入ip地址", Toast.LENGTH_SHORT).show();
                 else {
                     Protocol.Frame frame = IntRequestData.create().toFrame();
-                    SocketClient.getInstance().sendCommand(frame.toByteArray());
+                    SocketClient.getInstance().sendMsg(frame.toByteArray());
                 }
                 break;
             case R.id.send_protobuf_str:
@@ -174,7 +165,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(this, "请正确的输入ip地址", Toast.LENGTH_SHORT).show();
                 else {
                     Protocol.Frame frame = StrRequestData.create().toFrame();
-                    SocketClient.getInstance().sendCommand(frame.toByteArray());
+                    SocketClient.getInstance().sendMsg(frame.toByteArray());
                 }
                 break;
             case R.id.clear:

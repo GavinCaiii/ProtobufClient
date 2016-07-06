@@ -1,15 +1,9 @@
-// Copyright 2011 Google Inc. All Rights Reserved.
-
 package com.caitou.socket;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
 
-/**
- * A service that process each file transfer request i.e Intent by opening a
- * socket connection with the WiFi Direct Group Owner and writing the file
- */
 public class TransferService implements Runnable {
 
     private DataReceived mListener;
@@ -40,7 +34,6 @@ public class TransferService implements Runnable {
         }catch(IOException e){
             e.printStackTrace();
         }
-
     }
 
     public interface DataReceived {
